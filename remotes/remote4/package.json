@@ -1,12 +1,13 @@
 {
-  "name": "sbx-next-mfed",
+  "name": "remote4",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "clean": "rimraf .next out",
-    "start": "next start",
+    "start": "next start -p 3004",
+    "serve": "serve .next -p 3004",
     "build:all": "concurrently \"npm run build\" \"cd remotes/remote1; npm run build\" \"cd remotes/remote2; npm run build\" \"cd remotes/remote3; npm run build\" \"cd remotes/remote4; npm run build\"",
     "clean:all": "concurrently \"npm run clean\" \"cd remotes/remote1; npm run clean\" \"cd remotes/remote2; npm run clean\" \"cd remotes/remote3; npm run clean\" \"cd remotes/remote4; npm run clean\"",
     "serve:all": "concurrently \"npm start\" \"cd remotes/remote1; npm run serve\" \"cd remotes/remote2; npm run serve\" \"cd remotes/remote3; npm run serve\" \"cd remotes/remote4; npm run serve\"",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.5.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "serve": "^14.0.1"
   }
 }

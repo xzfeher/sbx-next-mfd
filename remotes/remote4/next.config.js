@@ -7,27 +7,28 @@ const nextConfig = {
 
   webpack(config, options) {
     // const location = options.isServer ? "ssr" : "chunks";
-    const locationWp = options.isServer ? "server" : "client";
-    const locationNext = options.isServer ? "ssr" : "chunks";
+    // const location = options.isServer ? "server" : "client";
 
     config.plugins.push(
       new NextFederationPlugin({
-        name: "main",
+        name: "remote4",
         // note: why we need this if we are consumers only?
         filename: "static/chunks/remoteEntry.js",
 
         remotes: {
-          remote1: `remote1@http://localhost:3001/${locationWp}/remoteEntry.js`,
-          remote2: `remote2@http://localhost:3002/${locationWp}/remoteEntry.js`,
-          remote3: `remote3@http://localhost:3003/${locationWp}/remoteEntry.js`,
-          remote4: `remote4@http://localhost:3004/static/${locationNext}/remoteEntry.js`,
+          //   remote1: `remote1@http://localhost:3001/${location}/remoteEntry.js`,
+          //   remote2: `remote2@http://localhost:3002/${location}/remoteEntry.js`,
+          //   remote3: `remote3@http://localhost:3003/${location}/remoteEntry.js`,
         },
 
-        // exposes: {},
+        exposes: {
+          "./Button": "./components/Button",
+          "./Message": "./components/Message",
+        },
 
         // note: some stuff shared by default (react, react-dom, ...)
         //  https://github.com/module-federation/nextjs-mf/tree/main/packages/nextjs-mf#whats-shared-by-default
-        // shared: {},
+        shared: {},
 
         // extraOptions: {
         //   automaticAsyncBoundary: true,
