@@ -2,6 +2,12 @@
   "name": "sbx-next-mfed",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "remotes/remote1",
+    "remotes/remote2",
+    "remotes/remote3",
+    "remotes/remote4"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
