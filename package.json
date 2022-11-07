@@ -13,12 +13,12 @@
     "build": "next build",
     "clean": "rimraf .next out",
     "start": "next start",
-    "build:all": "concurrently \"npm run build\" \"cd remotes/remote1; npm run build\" \"cd remotes/remote2; npm run build\" \"cd remotes/remote3; npm run build\" \"cd remotes/remote4; npm run build\"",
-    "clean:all": "concurrently \"npm run clean\" \"cd remotes/remote1; npm run clean\" \"cd remotes/remote2; npm run clean\" \"cd remotes/remote3; npm run clean\" \"cd remotes/remote4; npm run clean\"",
-    "serve:all": "concurrently \"npm start\" \"cd remotes/remote1; npm run serve\" \"cd remotes/remote2; npm run serve\" \"cd remotes/remote3; npm run serve\" \"cd remotes/remote4; npm run serve\"",
-    "build:remotes": "concurrently \"cd remotes/remote1; npm run build\" \"cd remotes/remote2; npm run build\" \"cd remotes/remote3; npm run build\" \"cd remotes/remote4; npm run build\"",
-    "clean:remotes": "concurrently \"cd remotes/remote1; npm run clean\" \"cd remotes/remote2; npm run clean\" \"cd remotes/remote3; npm run clean\" \"cd remotes/remote4; npm run clean\"",
-    "serve:remotes": "concurrently \"cd remotes/remote1; npm run serve\" \"cd remotes/remote2; npm run serve\" \"cd remotes/remote3; npm run serve\" \"cd remotes/remote4; npm run serve\"",
+    "build:all": "concurrently \"npm run build\" \"npm run build -w remote1\" \"npm run build -w remote2\" \"npm run build -w remote3\" \"npm run build -w remote4\"",
+    "clean:all": "concurrently \"npm run clean\" \"npm run clean -w remote1\" \"npm run clean -w remote2\" \"npm run clean -w remote3\" \"npm run clean -w remote4\"",
+    "serve:all": "concurrently \"npm start\" \"npm run serve -w remote1\" \"npm run serve -w remote2\" \"npm run serve -w remote3\" \"npm run serve -w remote4\"",
+    "build:remotes": "concurrently \"npm run build -w remote1\" \"npm run build -w remote2\" \"npm run build -w remote3\" \"npm run build -w remote4\"",
+    "clean:remotes": "concurrently \"npm run clean -w remote1\" \"npm run clean -w remote2\" \"npm run clean -w remote3\" \"npm run clean -w remote4\"",
+    "serve:remotes": "concurrently \"npm run serve -w remote1\" \"npm run serve -w remote2\" \"npm run serve -w remote3\" \"npm run serve -w remote4\"",
     "lint": "next lint"
   },
   "dependencies": {
